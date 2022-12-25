@@ -2,12 +2,15 @@
 import requests
 import json
 from datetime import datetime
-
+from wordcloud import WordCloud, STOPWORDS
 from transformers import pipeline
+import math
+import matplotlib.pyplot as plt
+import numpy as np
 
 sentiment_pipeline = pipeline("sentiment-analysis")
 
-with open("LWD_CLUB_GENERAL.txt") as f:
+with open("ML_CLUB_GENERAL.txt") as f:
     club_data = json.load(f)
 
 only_key = list(club_data["data"].keys())[0]
@@ -25,7 +28,6 @@ for key in list(keys):
         server_message_string += msg["m"].lower() + " "
         sentiments.append(sentiment_pipeline(msg["m"])[0]["score"])
 # %% WORDCLOUD
-from wordcloud import WordCloud, STOPWORDS
 
 stopwords = set(STOPWORDS)
 other_words = [
@@ -63,6 +65,7 @@ other_words = [
     "c",
     "work",
 ]
+
 for other_word in other_words:
     stopwords.add(other_word)
 
@@ -76,7 +79,6 @@ wordcloud = WordCloud(
 ).generate(server_message_string)
 
 # %%
-import matplotlib.pyplot as plt
 
 
 # plot the WordCloud image
@@ -88,8 +90,6 @@ plt.tight_layout(pad=0)
 plt.show()
 
 # %% PLOTTING
-import math
-import numpy as np
 
 
 def get_club_data(DISCORD_TXT_FILE):
@@ -121,10 +121,16 @@ def compile_sentiments(sentiments, times, days_averaging):
     )
 
 
-def plot_sentiments(sentiments_avg, sentiments_std, times):
+def plot_sentiments(
+    sentiments_avg,
+    sentiments_std,
+    times,
+    title="Sentiment in ML Club #general over Time",
+):
     plt.plot(sentiments_avg)
     plt.xlabel("Time")
     plt.ylabel("Sentiment")
+
     timestamp_tickers = list(
         map(
             lambda datetime_avg: datetime.fromtimestamp(datetime_avg).strftime(
@@ -138,7 +144,7 @@ def plot_sentiments(sentiments_avg, sentiments_std, times):
 
     N = len(timestamp_tickers)
     spaced_array = np.linspace(0, N, N)
-    plt.xticks(spaced_array, timestamp_tickers, rotation=90)
+    plt.xticks(spaced_array, reversed(timestamp_tickers), rotation=90)
 
     if sentiments_std:
         plt.fill_between(
@@ -146,7 +152,7 @@ def plot_sentiments(sentiments_avg, sentiments_std, times):
             sentiments_avg - sentiments_std,
             sentiments_avg + sentiments_std,
         )
-    plt.title("Sentiment in LWD #general over Time")
+    plt.title(title)
 
 
 def plot_given_sentiments(sentiments, N, times, days_averaging=200, show_std=False):
@@ -158,13 +164,18 @@ def plot_given_sentiments(sentiments, N, times, days_averaging=200, show_std=Fal
     plot_sentiments(sentiments_avg, sentiments_std, times_avg)
 
 
-def sentiment_analysis(club_data, times, days_averaging=200):
+def sentiment_analysis(
+    club_data,
+    times,
+    title="Sentiment in ML Club #general over Time",
+    days_averaging=200,
+):
     sentiments = calculate_sentiments(club_data)
     N = len(sentiments)
     sentiments_avg, sentiments_std = compile_sentiments(
         sentiments[-math.floor(N / days_averaging) * days_averaging :], days_averaging
     )
-    plot_sentiments(sentiments_avg, sentiments_std, times)
+    plot_sentiments(sentiments_avg, sentiments_std, times, title=title)
 
 
 # %%
