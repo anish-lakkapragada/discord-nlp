@@ -1,4 +1,4 @@
-## Basic Analysis of Club Discord Servers
+## Basic NLP Analysis of Club Discord Servers
 
 This is the repository for all code involving any analysis over the thousands of messages on the [Lynbrook Web Dev Club](https://discord.gg/FWRN5bqq5v) and [Machine Learning Club](https://discord.gg/gVQBu6K6ad) Discord Servers. 
 
