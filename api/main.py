@@ -10,11 +10,21 @@ import time
 import os
 from pydantic import BaseModel
 from starlette.background import BackgroundTasks
+from sentiment import _sentiment_analysis
 
 
 class DiscordJSON(BaseModel):
     meta: dict
     data: dict
+
+
+class DiscordJSONWordCloud(DiscordJSON):
+    bannedWords: str
+
+
+class DiscordJSONSentiAnalysis(DiscordJSON):
+    title: str
+    messages_averaging: int
 
 
 app = FastAPI()
@@ -35,11 +45,10 @@ def remove_file(path: str) -> None:
     os.unlink(path)
 
 
-@app.post("/wordcloud/{bannedWords}")
-async def wordcloud(
-    bannedWords, discordJSON: DiscordJSON, background_tasks: BackgroundTasks
-):
+@app.post("/wordcloud")
+async def wordcloud(discordJSON: DiscordJSONWordCloud):
     discordJSON = discordJSON.dict()
+    bannedWords = discordJSON["bannedWords"]
     only_key = list(discordJSON["data"].keys())[0]
     keys = discordJSON["data"][only_key].keys()
     data = discordJSON["data"][only_key]
@@ -63,11 +72,20 @@ async def wordcloud(
     ).generate(server_message_string)
 
     plt.axis("off")
-    fig = plt.figure(figsize=(8, 8), facecolor=None)
-    fig.show(wordcloud)
-    fig.tight_layout(pad=0)
+    plt.figure(figsize=(8, 8), facecolor=None)
+    plt.imshow(wordcloud)
+    plt.tight_layout(pad=0)
 
     file_name = f"cloud-{time.time()}"
-    fig.savefig(file_name, format="png")
-    background_tasks.add_task(remove_file, file_name)
-    return Response(file_name)
+    plt.savefig(file_name, format="png")
+
+    # background_tasks.add_task(remove_file, file_name)
+    return FileResponse(file_name)
+
+
+@app.post("/senti")
+def sentiment_analysis(discordJSON: DiscordJSONSentiAnalysis):
+    discordJSON = discordJSON.dict()
+    file_name = _sentiment_analysis(
+        discordJSON, discordJSON["title"], discordJSON["messages_averaging"]
+    )

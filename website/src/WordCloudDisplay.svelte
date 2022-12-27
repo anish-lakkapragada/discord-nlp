@@ -16,11 +16,35 @@
   renderImage();
 </script>
 
-<img id="wordcloud-image" src={wordCloudSrc} alt="Wordcloud." />
+<div class="container">
+  <h4 id="title">WordCloud: Most Common Words</h4>
+  <p id="wordcloud-description">
+    <i>
+      Below shows all of the most common words in the Discord Server channel.
+      Note that the words of no meaning (e.g. "the") are excluded along with
+      others.
+    </i>
+  </p>
+  <img id="wordcloud-image" src={wordCloudSrc} alt="Wordcloud." />
+</div>
 
 <style>
+  .container {
+    text-align: center;
+  }
+
+  .wordcloud-description {
+    margin-left: 10em;
+    margin-right: 10em;
+    font-style: italic;
+    font-size: 0.4em;
+  }
+
+  .title {
+    font-size: 0.75em;
+  }
   #wordcloud-image {
-    width: 2em;
-    height: 2em;
+    height: 15em;
+    margin-top: 2em;
   }
 </style>

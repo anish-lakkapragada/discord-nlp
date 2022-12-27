@@ -8,8 +8,6 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 
-sentiment_pipeline = pipeline("sentiment-analysis")
-
 with open("ML_CLUB_GENERAL.txt") as f:
     club_data = json.load(f)
 

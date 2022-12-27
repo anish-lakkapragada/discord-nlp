@@ -5,6 +5,7 @@
   import Analyses from "./Analyses.svelte";
   let submitted = false;
   let discordJSON;
+  let bannedWords;
 </script>
 
 <main>
@@ -14,11 +15,12 @@
         on:submittedTxt={(e) => {
           submitted = true;
           discordJSON = e.detail.discordJSON;
+          bannedWords = e.detail.bannedWords;
         }}
       />
     {:else}
       <!-- in this case, render component to show the analyses-->
-      <Analyses {discordJSON} />
+      <Analyses {discordJSON} {bannedWords} />
     {/if}
   </SozaiApp>
 </main>

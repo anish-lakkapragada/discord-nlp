@@ -19,12 +19,15 @@
   },
   "dependencies": {
     "@esbuild-plugins/node-globals-polyfill": "^0.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "buffer": "^6.0.3",
     "buffer-from": "^1.1.2",
+    "fontawesome-svelte": "^2.0.1",
     "fs": "^0.0.1-security",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.4.0",
     "sirv-cli": "^2.0.0",
-    "sozai": "^0.6.8"
+    "sozai": "^0.6.8",
+    "svelte-fa": "^3.0.3"
   }
 }
