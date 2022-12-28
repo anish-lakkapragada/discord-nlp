@@ -1,7 +1,0 @@
-requests
-json
-datetime 
-wordcloud 
-transformers 
-matplotlib.pyplot 
-numpy 

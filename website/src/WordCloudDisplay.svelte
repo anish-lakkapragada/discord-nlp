@@ -1,7 +1,5 @@
 <script>
   export let wordCloudResponse;
-  import { createEventDispatcher } from "svelte";
-  const dispatcher = createEventDispatcher();
   import { Buffer } from "buffer";
   let wordCloudSrc;
 
@@ -10,7 +8,6 @@
     const buffer = Buffer.from(new Uint8Array(arrayBuffer));
     let base64data = buffer.toString("base64");
     wordCloudSrc = `data:image/jpeg;base64,${base64data.toString("base64")}`;
-    console.log(wordCloudSrc);
   }
 
   renderImage();
@@ -33,15 +30,16 @@
     text-align: center;
   }
 
-  .wordcloud-description {
+  #wordcloud-description {
     margin-left: 10em;
     margin-right: 10em;
     font-style: italic;
     font-size: 0.4em;
   }
 
-  .title {
+  #title {
     font-size: 0.75em;
+    margin-top: 0.75em;
   }
   #wordcloud-image {
     height: 15em;

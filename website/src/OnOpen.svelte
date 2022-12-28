@@ -1,15 +1,23 @@
 <script>
-  import { SozaiApp, Button, TextField, List, ListItem } from "sozai";
+  import { SozaiApp, Button, TextField, List, ListItem, Slider } from "sozai";
   let secretInput;
   let txtFile;
   import { createEventDispatcher } from "svelte";
-  import { library } from "@fortawesome/fontawesome-svg-core";
   import Fa from "svelte-fa";
   import { faX } from "@fortawesome/free-solid-svg-icons";
 
   const dispatcher = createEventDispatcher();
   let discordJSON;
+  let channelName;
+  let messagesAveraging = 100;
+  let buttonDisabled = true;
   let bannedWords = new Set();
+
+  function checkDisabled(discordJSON, channelName) {
+    return discordJSON == null || channelName?.length == 0;
+  }
+
+  $: buttonDisabled = checkDisabled(discordJSON, channelName);
 
   let binput;
 
@@ -32,6 +40,8 @@
     dispatcher("submittedTxt", {
       discordJSON: discordJSON,
       bannedWords: bannedWords,
+      messagesAveraging: messagesAveraging,
+      channelName: channelName,
     });
   }
 </script>
@@ -48,8 +58,14 @@
     accept="txt"
     on:change={setTxt}
   />
+
+  <div id="channel-name-tf">
+    <TextField bind:value={channelName} label="Discord Channel Name" outlined />
+  </div>
+
   <!-- <Button on:click={susClick} on:close={setTxt}>Choose File</Button> -->
 
+  <h4 style="margin-top: 0.6em;">WordCloud Parameters</h4>
   <List>
     {#if Array.from(bannedWords).length > 0}<h3 id="banned-word-banner">
         Excluded Words In The WordCloud
@@ -77,6 +93,7 @@
     <TextField
       id="banned-words-tf"
       label="Excluded Wordcloud Words"
+      outlined
       bind:value={binput}
     />
     <Button
@@ -89,12 +106,32 @@
     >
   </div>
 
-  <Button disabled={discordJSON == null} type="submit" on:click={submitForm}
+  <h4 style="margin-top: 0.6em;">Sentiment Analysis Parameters</h4>
+
+  <div id="sentiment-parameters">
+    <TextField
+      outlined
+      label="Messages to Average"
+      bind:value={messagesAveraging}
+    />
+  </div>
+
+  <Button disabled={buttonDisabled} type="submit" on:click={submitForm}
     >Get Analysis!</Button
   >
 </SozaiApp>
 
 <style>
+  #channel-name-tf {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  #sentiment-parameters {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+
   .excluded-word-item {
     display: flex;
     width: 100%;

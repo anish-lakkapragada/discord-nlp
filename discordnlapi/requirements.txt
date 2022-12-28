@@ -1,0 +1,7 @@
+requests
+datetime
+transformers 
+matplotlib 
+wordcloud 
+fastapi 
+mangum 

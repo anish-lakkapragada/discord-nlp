@@ -6,6 +6,8 @@
   let submitted = false;
   let discordJSON;
   let bannedWords;
+  let channelName;
+  let messagesAveraging;
 </script>
 
 <main>
@@ -16,11 +18,13 @@
           submitted = true;
           discordJSON = e.detail.discordJSON;
           bannedWords = e.detail.bannedWords;
+          channelName = e.detail.channelName;
+          messagesAveraging = e.detail.messagesAveraging;
         }}
       />
     {:else}
       <!-- in this case, render component to show the analyses-->
-      <Analyses {discordJSON} {bannedWords} />
+      <Analyses {discordJSON} {bannedWords} {channelName} {messagesAveraging} />
     {/if}
   </SozaiApp>
 </main>
