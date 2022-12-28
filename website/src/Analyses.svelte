@@ -7,8 +7,7 @@
   import { ProgressCircular, SozaiApp } from "sozai";
   import WordCloudDisplay from "./WordCloudDisplay.svelte";
   import SentiDisplay from "./SentiDisplay.svelte";
-  const API_URL =
-    "https://jbon7hsc6qt7h55g72utelyvee0erjrx.lambda-url.us-west-1.on.aws";
+  const API_URL = "https://3f84-150-230-44-145.jp.ngrok.io";
   let wordCloudLoaded = false;
   let sentimentAnalysisLoaded = false;
   let wordCloudResponse, sentimentAnalysisResponse;
@@ -43,15 +42,22 @@
   async function getSentimentAnalysis() {
     discordJSON["title"] = `Sentiment Analysis in ${channelName} Over Time`;
     discordJSON["messagesAveraging"] = messagesAveraging;
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), 20 * 60 * 1000);
     sentimentAnalysisResponse = await fetch(`${API_URL}/senti`, {
       method: "POST",
       mode: "cors",
       body: JSON.stringify(discordJSON),
+      // signal: controller.signal,
       headers: {
         "Content-Type": "application/json",
       },
     });
 
+    clearTimeout(id);
+
+    console.log("Here");
+    console.log(sentimentAnalysisResponse);
     if (sentimentAnalysisResponse.status != 200) {
       const data = await sentimentAnalysisResponse.json();
       console.warn(data);
@@ -60,8 +66,8 @@
     sentimentAnalysisLoaded = true;
   }
 
-  getWordCloud();
   getSentimentAnalysis();
+  getWordCloud();
 </script>
 
 <h2>Analysis Page</h2>
