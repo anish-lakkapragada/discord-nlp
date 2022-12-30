@@ -4,7 +4,7 @@ This is the repository for all code involving any analysis over the thousands of
 
 ## WordClouds 
 
-> Certain words that have no meaning or contain no flavor about the server were removed so that the WordClouds can be informative. 
+> Certain words that have no meaning or contain no flavor about the server were removed so that the WordClouds can be informative. LWD's most common word is "bruh".
 
 #### Web Dev Club 
 
