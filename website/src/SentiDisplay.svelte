@@ -1,5 +1,6 @@
 <script>
   export let sentimentAnalysisResponse;
+  export let messagesAveraging;
 
   import { Buffer } from "buffer";
   let sentiSrc;
@@ -19,9 +20,15 @@
   <h4 id="title">Sentiment Analysis Positive/Negative Over Time</h4>
   <p id="senti-description">
     <i>
-      Below shows all of the most common words in the Discord Server channel.
-      Note that the words of no meaning (e.g. "the") are excluded along with
-      others.
+      Below shows the <a
+        href="https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english"
+      >
+        sentiment (positive/negative)
+      </a>
+      of the channel over time. The dates of the messages are shown on the
+      x-axis and are not spread out evenly (as message frequency is not
+      consistent.) Note that the sentiment is averaged over every {messagesAveraging}
+      messages.
     </i>
   </p>
   <img id="senti-image" src={sentiSrc} alt="Sentiment Analysis Plot." />
