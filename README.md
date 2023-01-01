@@ -6,7 +6,9 @@ This is the repository for the website to analyze messages in a Discord Channel.
 
 If you would like to do the same, please go to the website [here](https://anish-lakkapragada.github.io/discord-nlp/).
 
-## WordClouds 
+## Analysis on Web Dev + ML Club
+
+### WordClouds 
 
 > Certain words that have no meaning or contain no flavor about the server were removed so that the WordClouds can be informative. LWD's most common word is "bruh".
 
@@ -24,7 +26,7 @@ If you would like to do the same, please go to the website [here](https://anish-
     <figcaption> Bruh why is college bigger than PyTorch?? </figcaption>
 </figure>
 
-## Sentiment Analysis Over Time
+### Sentiment Analysis Over Time
 
 > The figures below track the positive/negative sentiment on average for all the messages in the #general channel of the servers through [Hugging Face's sentiment analysis](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english). Note that the dates on the x-axis are not necessarily spaced out evenly. 
 
