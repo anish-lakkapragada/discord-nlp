@@ -5,6 +5,7 @@
   import { createEventDispatcher } from "svelte";
   import Fa from "svelte-fa";
   import { faX } from "@fortawesome/free-solid-svg-icons";
+  import { } from "os";
 
   const dispatcher = createEventDispatcher();
   let discordJSON;
@@ -47,25 +48,28 @@
 </script>
 
 <SozaiApp>
-  <h2>Discord Club Analyzer !</h2>
-
-  <p>Just upload a .txt file here!</p>
+  <h2>Discord Channel Analyzer!</h2>
+  <p style="font-size: 1.2em;"> Just upload a .txt file of the Discord Channel [<a href="https://www.youtube.com/watch?v=tt-TBOWLyJk"> instructions</a>]!  <br> <br> 
+      You will receive a wordcloud summmarizing some of the most used words and a graph of the sentiment over time.  
+  </p>
 
   <input
     bind:this={secretInput}
     type="file"
     id="upload-input"
-    accept="txt"
+    accept="txt text/plain"
     on:change={setTxt}
   />
 
   <div id="channel-name-tf">
-    <TextField bind:value={channelName} label="Discord Channel Name" outlined />
+    <TextField bind:value={channelName} label="Name of Channel" outlined />
   </div>
 
   <!-- <Button on:click={susClick} on:close={setTxt}>Choose File</Button> -->
 
-  <h4 style="margin-top: 0.6em;">WordCloud Parameters</h4>
+  <h4 style="margin-top: 0.6em">WordCloud Parameters</h4>
+  <p style="font-size: 1em"> Enter words below to exclude from the WordCloud. </p>
+
   <List>
     {#if Array.from(bannedWords).length > 0}<h3 id="banned-word-banner">
         Excluded Words In The WordCloud
@@ -90,33 +94,38 @@
   </List>
 
   <div class="banned-word-row">
-    <TextField
-      id="banned-words-tf"
-      label="Excluded Wordcloud Words"
-      outlined
-      bind:value={binput}
-    />
-    <Button
-      disabled={binput?.length == 0 || bannedWords.has(binput)}
-      on:click={() => {
-        bannedWords.add(binput);
-        bannedWords = bannedWords;
-        binput = "";
-      }}>Add Word!</Button
-    >
+    <div class="banned-words-tf"> 
+      <TextField
+        label="Enter Word"
+        outlined
+        bind:value={binput}
+      />
+    </div>
+    <div class="button-add"> 
+      <Button
+        disabled={binput?.length == 0 || bannedWords.has(binput)}
+        on:click={() => {
+          bannedWords.add(binput);
+          bannedWords = bannedWords;
+          binput = "";
+        }}>Add Word!</Button
+      >
+    </div>
   </div>
 
   <h4 style="margin-top: 0.6em;">Sentiment Analysis Parameters</h4>
+  <p style="font-size: 1em"> Enter how many messages to average when computing data points for the sentiment graph. </p>
 
   <div id="sentiment-parameters">
     <TextField
       outlined
-      label="Messages to Average"
+      label="Smoothing Parameter (Messages Averaged)"
       bind:value={messagesAveraging}
+      error={isNaN(messagesAveraging) || parseInt(messagesAveraging) <= 1 ? "Must be a number greater than 1." : null }
     />
   </div>
 
-  <Button disabled={buttonDisabled} type="submit" on:click={submitForm}
+  <Button disabled={buttonDisabled} type="submit" on:click={submitForm} style="width: 100%; text-align: center; width: 30em;"
     >Get Analysis!</Button
   >
 </SozaiApp>
@@ -140,22 +149,23 @@
     justify-content: space-between;
   }
 
-  .button-x {
-  }
+
   #banned-word-banner {
     text-align: center;
     font-size: 1.5em;
   }
+
   .banned-word-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    margin-left: 25%;
-    width: 50%;
+    display: flex; 
+    grid-gap: 1em;
+    justify-content: center;  
   }
-  #upload-input {
-    /* visibility: hidden;
-    width: 0;
-    height: 0; */
+
+  .button-add :global(.s-button) {
+    height: 100%;  /* needs to be as high as the div */
   }
+  .banned-words-tf :global(.s-input-container) {
+    margin: 0; /* remove any excess */ 
+  }
+
 </style>

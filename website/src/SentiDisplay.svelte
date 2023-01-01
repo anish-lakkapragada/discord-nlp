@@ -39,15 +39,11 @@
     text-align: center;
   }
 
-  #title {
-    font-size: 0.75em;
-  }
-
   #senti-description {
     margin-left: 10em;
     margin-right: 10em;
     font-style: italic;
-    font-size: 0.4em;
+    font-size: 1em;
   }
 
   #senti-image {

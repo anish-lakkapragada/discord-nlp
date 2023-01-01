@@ -8,7 +8,7 @@
   import WordCloudDisplay from "./WordCloudDisplay.svelte";
   import SentiDisplay from "./SentiDisplay.svelte";
 
-  const API_URL = "df5a-150-230-44-145.jp.ngrok.io";
+  const API_URL = "8938-150-230-44-145.jp.ngrok.io"
   let showFirstDialog = true;
   let wordCloudLoaded = false;
   let sentimentAnalysisLoaded = false;
@@ -90,19 +90,31 @@
       body: JSON.stringify(discordJSON),
       headers: {
         "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": true
       },
     });
 
     const idData = await sendRequest.json();
     console.log(idData);
 
-    setInterval(async () => {
+    var thisInterval = setInterval(async () => {
+      
       const doneYet = await fetch(`https://${API_URL}/senti/${idData.uuid}`, {
         method: "GET",
         mode: "cors",
+        headers: {
+          "ngrok-skip-browser-warning": true
+        }
       });
 
-    }, 3000)
+      console.log(doneYet)
+      if (doneYet.status == 200) {
+        sentimentAnalysisResponse = doneYet;
+        sentimentAnalysisLoaded = true; 
+        clearInterval(thisInterval);
+      }
+    
+    }, 5000)
 
     // clearTimeout(id);
 
@@ -112,36 +124,36 @@
     //   const data = await sentimentAnalysisResponse.json();
     //   console.warn(data);
     // }
-
-    sentimentAnalysisLoaded = false;
   }
 
   getSentimentAnalysis();
-  // getWordCloud();
+  getWordCloud();
 </script>
 
-<h2>Analysis Page</h2>
-
 <SozaiApp>
-  <Dialog bind:value={showFirstDialog}>
-    <h3 slot="title">This will take some time.</h3>
-    <p style="text-align: center;">
-      Currently, an API is processing the messages to extract and display
-      information. For the sentiment analysis plot, approximately 30 messages
-      are computed per second.
-      <br />
-      Work like this takes time and effort. To support developers and projects like
-      this, please star:
-      <a href="https://github.com/anish-lakkapragada/club-discords-nlp">
-        repository.
-      </a>
-    </p>
-    <div slot="actions">
-      <Button text on:click={() => (showFirstDialog = false)}>
-        I starred the repo
-      </Button>
-    </div>
-  </Dialog>
+  <h2>Discord Channel Analyzer - <i> Analysis Page </i>!</h2>
+  <div id="dialog"> 
+    <Dialog bind:value={showFirstDialog}>
+      <h3 slot="title">This will take some time.</h3>
+      <p style="text-align: center;">
+        Currently, an API is processing the messages to extract and display
+        information. For the sentiment analysis plot, approximately 5 messages
+        are analyzed per second.
+        <br /> <br /> 
+        Work like this requires a constantly running server. To support developers and projects like
+        this, please consider starring the 
+        <a href="https://github.com/anish-lakkapragada/club-discords-nlp">
+          repository
+        </a>
+        for this project. 
+      </p>
+      <div slot="actions">
+        <Button text on:click={() => (showFirstDialog = false)}>
+          I starred the repo
+        </Button>
+      </div>
+    </Dialog>
+  </div>
   {#if wordCloudLoaded}
     <WordCloudDisplay {wordCloudResponse} />
   {:else}
@@ -174,11 +186,15 @@
 </SozaiApp>
 
 <style>
+
+  #dialog {
+    margin-left: 10em;
+    margin-right: 10em;
+    border-radius: 10px; 
+
+  }
   #wordcloud-unloaded {
     margin-top: 1.5em;
   }
 
-  #progress-bar {
-    margin-top: 0.6em;
-  }
 </style>

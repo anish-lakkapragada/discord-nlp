@@ -34,7 +34,7 @@
     margin-left: 10em;
     margin-right: 10em;
     font-style: italic;
-    font-size: 0.4em;
+    font-size: 1em;
   }
 
   #title {
