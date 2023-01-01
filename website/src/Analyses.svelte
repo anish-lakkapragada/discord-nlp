@@ -8,7 +8,7 @@
   import WordCloudDisplay from "./WordCloudDisplay.svelte";
   import SentiDisplay from "./SentiDisplay.svelte";
 
-  const API_URL = "8938-150-230-44-145.jp.ngrok.io"
+  const API_URL = "f488-150-230-44-145.jp.ngrok.io"
   let showFirstDialog = true;
   let wordCloudLoaded = false;
   let sentimentAnalysisLoaded = false;
