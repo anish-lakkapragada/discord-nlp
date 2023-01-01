@@ -38,11 +38,10 @@
   }
 
   #title {
-    font-size: 0.75em;
     margin-top: 0.75em;
   }
   #wordcloud-image {
-    height: 15em;
-    margin-top: 2em;
+    height: 30em;
+    margin-top: 1em;
   }
 </style>

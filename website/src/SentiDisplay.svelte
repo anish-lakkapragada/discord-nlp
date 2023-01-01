@@ -48,6 +48,6 @@
 
   #senti-image {
     height: 30em;
-    margin-top: 2em;
+    margin-top: 1em;
   }
 </style>
