@@ -62,7 +62,7 @@
   />
 
   <div id="channel-name-tf">
-    <TextField bind:value={channelName} label="Name of Channel" outlined />
+    <TextField bind:value={channelName} label="Channel Name" outlined />
   </div>
 
   <!-- <Button on:click={susClick} on:close={setTxt}>Choose File</Button> -->
@@ -119,18 +119,25 @@
   <div id="sentiment-parameters">
     <TextField
       outlined
-      label="Smoothing Parameter (Messages Averaged)"
+      label="Messages To Average"
       bind:value={messagesAveraging}
       error={isNaN(messagesAveraging) || parseInt(messagesAveraging) <= 1 ? "Must be a number greater than 1." : null }
     />
   </div>
 
-  <Button disabled={buttonDisabled} type="submit" on:click={submitForm} style="width: 100%; text-align: center; width: 30em;"
+  <div id="submit-btn">
+    <Button disabled={buttonDisabled} type="submit" on:click={submitForm}
     >Get Analysis!</Button
-  >
+    >
+  </div>
 </SozaiApp>
 
 <style>
+  #submit-btn {
+    width: 100%; 
+  }
+
+
   #channel-name-tf {
     text-align: center;
     margin-left: 25%;
@@ -166,6 +173,40 @@
   }
   .banned-words-tf :global(.s-input-container) {
     margin: 0; /* remove any excess */ 
+  }
+
+  @media screen and (max-width: 500px) {
+    #upload-input {
+      width: 100%;
+    }
+
+    #channel-name-tf {
+      width: 100%; 
+      margin-left: 0; 
+      margin-right: 0;
+    }
+
+    #channel-name-tf :global(.s-input-container) {
+      width: 100%;
+      text-align: center;
+    }
+
+    #sentiment-parameters {
+      width: 100%; 
+      margin-left: 0; 
+      margin-right: 0;
+    }
+
+    #sentiment-parameters :global(.s-input-container) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    #submit-btn :global(.s-button) {
+      width: 30em;
+    }
   }
 
 </style>

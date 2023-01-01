@@ -131,7 +131,7 @@
 </script>
 
 <SozaiApp>
-  <h2>Discord Channel Analyzer - <i> Analysis Page </i>!</h2>
+  <h2> Analysis Page </h2>
   <div id="dialog"> 
     <Dialog bind:value={showFirstDialog}>
       <h3 slot="title">This will take some time.</h3>
