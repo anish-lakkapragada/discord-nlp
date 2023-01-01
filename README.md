@@ -1,8 +1,10 @@
-## Basic NLP Analysis of Club Discord Servers
+# [Basic NLP Analysis of Discord Channels](https://anish-lakkapragada.github.io/discord-nlp/)
 
 > Tech 🥪: Svelte.js w/ [Sozai](https://github.com/r2dev2/sozai) UI, FastAPI Backend running on an Oracle VM exposed with Ngrok.
 
-This is the repository for all code involving any analysis over the thousands of messages on the [Lynbrook Web Dev Club](https://discord.gg/FWRN5bqq5v) and [Machine Learning Club](https://discord.gg/gVQBu6K6ad) Discord Servers. 
+This is the repository for the website to analyze messages in a Discord Channel. The project was motivated to first analyze the thousands of messages on the [Lynbrook Web Dev Club](https://discord.gg/FWRN5bqq5v) and [Machine Learning Club](https://discord.gg/gVQBu6K6ad) Discord #general channels.
+
+If you would like to do the same, please go to the website [here](https://anish-lakkapragada.github.io/discord-nlp/).
 
 ## WordClouds 
 
