@@ -1,4 +1,1 @@
-.vscode/*
-.vscode/
-lib
-*.zip
+node_modules
