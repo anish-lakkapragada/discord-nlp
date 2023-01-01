@@ -7290,8 +7290,8 @@ var app = (function () {
     			h3 = element("h3");
     			h3.textContent = "Excluded Words In The WordCloud";
     			attr_dev(h3, "id", "banned-word-banner");
-    			attr_dev(h3, "class", "svelte-134ebij");
-    			add_location(h3, file$4, 73, 44, 2119);
+    			attr_dev(h3, "class", "svelte-18cdoyo");
+    			add_location(h3, file$4, 73, 44, 2116);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -7346,10 +7346,10 @@ var app = (function () {
     			create_component(fa.$$.fragment);
     			t4 = space();
     			set_style(h5, "font-size", "1.5em");
-    			add_location(h5, file$4, 80, 10, 2365);
-    			add_location(button, file$4, 81, 10, 2426);
-    			attr_dev(div, "class", "excluded-word-item svelte-134ebij");
-    			add_location(div, file$4, 79, 8, 2322);
+    			add_location(h5, file$4, 80, 10, 2362);
+    			add_location(button, file$4, 81, 10, 2423);
+    			attr_dev(div, "class", "excluded-word-item svelte-18cdoyo");
+    			add_location(div, file$4, 79, 8, 2319);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -7431,7 +7431,7 @@ var app = (function () {
 
     			set_style(div, "margin-top", "1em");
     			set_style(div, "margin-bottom", "1em");
-    			add_location(div, file$4, 77, 4, 2214);
+    			add_location(div, file$4, 77, 4, 2211);
     		},
     		m: function mount(target, anchor) {
     			if (if_block) if_block.m(target, anchor);
@@ -7550,7 +7550,7 @@ var app = (function () {
     	return block;
     }
 
-    // (128:2) <Button disabled={buttonDisabled} type="submit" on:click={submitForm} style="width: 100%; text-align: center; width: 30em;"     >
+    // (129:4) <Button disabled={buttonDisabled} type="submit" on:click={submitForm}     >
     function create_default_slot_1$1(ctx) {
     	let t;
 
@@ -7570,7 +7570,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$1.name,
     		type: "slot",
-    		source: "(128:2) <Button disabled={buttonDisabled} type=\\\"submit\\\" on:click={submitForm} style=\\\"width: 100%; text-align: center; width: 30em;\\\"     >",
+    		source: "(129:4) <Button disabled={buttonDisabled} type=\\\"submit\\\" on:click={submitForm}     >",
     		ctx
     	});
 
@@ -7618,6 +7618,7 @@ var app = (function () {
     	let textfield2;
     	let updating_value_2;
     	let t21;
+    	let div5;
     	let button1;
     	let current;
     	let mounted;
@@ -7627,7 +7628,7 @@ var app = (function () {
     		/*textfield0_value_binding*/ ctx[10](value);
     	}
 
-    	let textfield0_props = { label: "Name of Channel", outlined: true };
+    	let textfield0_props = { label: "Channel Name", outlined: true };
 
     	if (/*channelName*/ ctx[0] !== void 0) {
     		textfield0_props.value = /*channelName*/ ctx[0];
@@ -7674,7 +7675,7 @@ var app = (function () {
 
     	let textfield2_props = {
     		outlined: true,
-    		label: "Smoothing Parameter (Messages Averaged)",
+    		label: "Messages To Average",
     		error: isNaN(/*messagesAveraging*/ ctx[2]) || parseInt(/*messagesAveraging*/ ctx[2]) <= 1
     		? "Must be a number greater than 1."
     		: null
@@ -7691,7 +7692,6 @@ var app = (function () {
     			props: {
     				disabled: /*buttonDisabled*/ ctx[3],
     				type: "submit",
-    				style: "width: 100%; text-align: center; width: 30em;",
     				$$slots: { default: [create_default_slot_1$1] },
     				$$scope: { ctx }
     			},
@@ -7744,6 +7744,7 @@ var app = (function () {
     			div4 = element("div");
     			create_component(textfield2.$$.fragment);
     			t21 = space();
+    			div5 = element("div");
     			create_component(button1.$$.fragment);
     			add_location(h2, file$4, 50, 2, 1271);
     			attr_dev(a, "href", "https://www.youtube.com/watch?v=tt-TBOWLyJk");
@@ -7755,27 +7756,31 @@ var app = (function () {
     			attr_dev(input, "type", "file");
     			attr_dev(input, "id", "upload-input");
     			attr_dev(input, "accept", "txt text/plain");
+    			attr_dev(input, "class", "svelte-18cdoyo");
     			add_location(input, file$4, 55, 2, 1600);
     			attr_dev(div0, "id", "channel-name-tf");
-    			attr_dev(div0, "class", "svelte-134ebij");
+    			attr_dev(div0, "class", "svelte-18cdoyo");
     			add_location(div0, file$4, 63, 2, 1732);
     			set_style(h40, "margin-top", "0.6em");
-    			add_location(h40, file$4, 69, 2, 1926);
+    			add_location(h40, file$4, 69, 2, 1923);
     			set_style(p1, "font-size", "1em");
-    			add_location(p1, file$4, 70, 2, 1984);
-    			attr_dev(div1, "class", "banned-words-tf svelte-134ebij");
-    			add_location(div1, file$4, 96, 4, 2776);
-    			attr_dev(div2, "class", "button-add svelte-134ebij");
-    			add_location(div2, file$4, 103, 4, 2920);
-    			attr_dev(div3, "class", "banned-word-row svelte-134ebij");
-    			add_location(div3, file$4, 95, 2, 2742);
+    			add_location(p1, file$4, 70, 2, 1981);
+    			attr_dev(div1, "class", "banned-words-tf svelte-18cdoyo");
+    			add_location(div1, file$4, 96, 4, 2773);
+    			attr_dev(div2, "class", "button-add svelte-18cdoyo");
+    			add_location(div2, file$4, 103, 4, 2917);
+    			attr_dev(div3, "class", "banned-word-row svelte-18cdoyo");
+    			add_location(div3, file$4, 95, 2, 2739);
     			set_style(h41, "margin-top", "0.6em");
-    			add_location(h41, file$4, 115, 2, 3207);
+    			add_location(h41, file$4, 115, 2, 3204);
     			set_style(p2, "font-size", "1em");
-    			add_location(p2, file$4, 116, 2, 3275);
+    			add_location(p2, file$4, 116, 2, 3272);
     			attr_dev(div4, "id", "sentiment-parameters");
-    			attr_dev(div4, "class", "svelte-134ebij");
-    			add_location(div4, file$4, 118, 2, 3397);
+    			attr_dev(div4, "class", "svelte-18cdoyo");
+    			add_location(div4, file$4, 118, 2, 3394);
+    			attr_dev(div5, "id", "submit-btn");
+    			attr_dev(div5, "class", "svelte-18cdoyo");
+    			add_location(div5, file$4, 127, 2, 3666);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -7815,7 +7820,8 @@ var app = (function () {
     			insert_dev(target, div4, anchor);
     			mount_component(textfield2, div4, null);
     			insert_dev(target, t21, anchor);
-    			mount_component(button1, target, anchor);
+    			insert_dev(target, div5, anchor);
+    			mount_component(button1, div5, null);
     			current = true;
 
     			if (!mounted) {
@@ -7926,7 +7932,8 @@ var app = (function () {
     			if (detaching) detach_dev(div4);
     			destroy_component(textfield2);
     			if (detaching) detach_dev(t21);
-    			destroy_component(button1, detaching);
+    			if (detaching) detach_dev(div5);
+    			destroy_component(button1);
     			mounted = false;
     			dispose();
     		}
@@ -10488,12 +10495,12 @@ var app = (function () {
     			a = element("a");
     			a.textContent = "repository";
     			t4 = text("\n        for this project.");
-    			add_location(br0, file$1, 141, 8, 4212);
-    			add_location(br1, file$1, 141, 15, 4219);
+    			add_location(br0, file$1, 141, 8, 4177);
+    			add_location(br1, file$1, 141, 15, 4184);
     			attr_dev(a, "href", "https://github.com/anish-lakkapragada/club-discords-nlp");
-    			add_location(a, file$1, 144, 8, 4380);
+    			add_location(a, file$1, 144, 8, 4345);
     			set_style(p, "text-align", "center");
-    			add_location(p, file$1, 137, 6, 3984);
+    			add_location(p, file$1, 137, 6, 3949);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -10531,7 +10538,7 @@ var app = (function () {
     			h3 = element("h3");
     			h3.textContent = "This will take some time.";
     			attr_dev(h3, "slot", "title");
-    			add_location(h3, file$1, 136, 6, 3930);
+    			add_location(h3, file$1, 136, 6, 3895);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h3, anchor);
@@ -10602,7 +10609,7 @@ var app = (function () {
     			div = element("div");
     			create_component(button.$$.fragment);
     			attr_dev(div, "slot", "actions");
-    			add_location(div, file$1, 149, 6, 4525);
+    			add_location(div, file$1, 149, 6, 4490);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -10672,9 +10679,9 @@ var app = (function () {
     			create_component(progresscircular.$$.fragment);
     			attr_dev(h5, "id", "wordcloud-unloaded");
     			attr_dev(h5, "class", "svelte-1190oy2");
-    			add_location(h5, file$1, 159, 4, 4777);
+    			add_location(h5, file$1, 159, 4, 4742);
     			attr_dev(div, "class", "progress-bar");
-    			add_location(div, file$1, 160, 4, 4836);
+    			add_location(div, file$1, 160, 4, 4801);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h5, anchor);
@@ -10790,9 +10797,9 @@ var app = (function () {
     			create_component(progresscircular.$$.fragment);
     			attr_dev(h5, "id", "wordcloud-unloaded");
     			attr_dev(h5, "class", "svelte-1190oy2");
-    			add_location(h5, file$1, 174, 4, 5143);
+    			add_location(h5, file$1, 174, 4, 5108);
     			attr_dev(div, "class", "progress-bar");
-    			add_location(div, file$1, 175, 4, 5211);
+    			add_location(div, file$1, 175, 4, 5176);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h5, anchor);
@@ -10885,17 +10892,14 @@ var app = (function () {
     // (133:0) <SozaiApp>
     function create_default_slot$1(ctx) {
     	let h2;
-    	let t0;
-    	let i;
-    	let t2;
-    	let t3;
+    	let t1;
     	let div;
     	let dialog;
     	let updating_value;
-    	let t4;
+    	let t2;
     	let current_block_type_index;
     	let if_block0;
-    	let t5;
+    	let t3;
     	let current_block_type_index_1;
     	let if_block1;
     	let if_block1_anchor;
@@ -10944,35 +10948,28 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			h2 = element("h2");
-    			t0 = text("Discord Channel Analyzer - ");
-    			i = element("i");
-    			i.textContent = "Analysis Page ";
-    			t2 = text("!");
-    			t3 = space();
+    			h2.textContent = "Analysis Page";
+    			t1 = space();
     			div = element("div");
     			create_component(dialog.$$.fragment);
-    			t4 = space();
+    			t2 = space();
     			if_block0.c();
-    			t5 = space();
+    			t3 = space();
     			if_block1.c();
     			if_block1_anchor = empty();
-    			add_location(i, file$1, 133, 33, 3832);
     			add_location(h2, file$1, 133, 2, 3801);
     			attr_dev(div, "id", "dialog");
     			attr_dev(div, "class", "svelte-1190oy2");
-    			add_location(div, file$1, 134, 2, 3863);
+    			add_location(div, file$1, 134, 2, 3828);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
-    			append_dev(h2, t0);
-    			append_dev(h2, i);
-    			append_dev(h2, t2);
-    			insert_dev(target, t3, anchor);
+    			insert_dev(target, t1, anchor);
     			insert_dev(target, div, anchor);
     			mount_component(dialog, div, null);
-    			insert_dev(target, t4, anchor);
+    			insert_dev(target, t2, anchor);
     			if_blocks[current_block_type_index].m(target, anchor);
-    			insert_dev(target, t5, anchor);
+    			insert_dev(target, t3, anchor);
     			if_blocks_1[current_block_type_index_1].m(target, anchor);
     			insert_dev(target, if_block1_anchor, anchor);
     			current = true;
@@ -11014,7 +11011,7 @@ var app = (function () {
     				}
 
     				transition_in(if_block0, 1);
-    				if_block0.m(t5.parentNode, t5);
+    				if_block0.m(t3.parentNode, t3);
     			}
 
     			let previous_block_index_1 = current_block_type_index_1;
@@ -11058,12 +11055,12 @@ var app = (function () {
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(h2);
-    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(t1);
     			if (detaching) detach_dev(div);
     			destroy_component(dialog);
-    			if (detaching) detach_dev(t4);
+    			if (detaching) detach_dev(t2);
     			if_blocks[current_block_type_index].d(detaching);
-    			if (detaching) detach_dev(t5);
+    			if (detaching) detach_dev(t3);
     			if_blocks_1[current_block_type_index_1].d(detaching);
     			if (detaching) detach_dev(if_block1_anchor);
     		}
