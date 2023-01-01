@@ -10153,18 +10153,18 @@ var app = (function () {
     			t3 = space();
     			img = element("img");
     			attr_dev(h4, "id", "title");
-    			attr_dev(h4, "class", "svelte-y7ltbj");
+    			attr_dev(h4, "class", "svelte-uvnbvj");
     			add_location(h4, file$3, 16, 2, 439);
     			add_location(i, file$3, 18, 4, 525);
     			attr_dev(p, "id", "wordcloud-description");
-    			attr_dev(p, "class", "svelte-y7ltbj");
+    			attr_dev(p, "class", "svelte-uvnbvj");
     			add_location(p, file$3, 17, 2, 490);
     			attr_dev(img, "id", "wordcloud-image");
     			if (!src_url_equal(img.src, img_src_value = /*wordCloudSrc*/ ctx[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Wordcloud.");
-    			attr_dev(img, "class", "svelte-y7ltbj");
+    			attr_dev(img, "class", "svelte-uvnbvj");
     			add_location(img, file$3, 24, 2, 716);
-    			attr_dev(div, "class", "container svelte-y7ltbj");
+    			attr_dev(div, "class", "container svelte-uvnbvj");
     			add_location(div, file$3, 15, 0, 413);
     		},
     		l: function claim(nodes) {
@@ -10316,14 +10316,14 @@ var app = (function () {
     			add_location(a, file$2, 22, 22, 633);
     			add_location(i, file$2, 21, 4, 607);
     			attr_dev(p, "id", "senti-description");
-    			attr_dev(p, "class", "svelte-i0zey8");
+    			attr_dev(p, "class", "svelte-1t1dk85");
     			add_location(p, file$2, 20, 2, 576);
     			attr_dev(img, "id", "senti-image");
     			if (!src_url_equal(img.src, img_src_value = /*sentiSrc*/ ctx[1])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", "Sentiment Analysis Plot.");
-    			attr_dev(img, "class", "svelte-i0zey8");
+    			attr_dev(img, "class", "svelte-1t1dk85");
     			add_location(img, file$2, 33, 2, 1046);
-    			attr_dev(div, "class", "container svelte-i0zey8");
+    			attr_dev(div, "class", "container svelte-1t1dk85");
     			add_location(div, file$2, 18, 0, 481);
     		},
     		l: function claim(nodes) {
