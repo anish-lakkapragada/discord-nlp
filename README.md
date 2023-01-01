@@ -1,6 +1,6 @@
 ## Basic NLP Analysis of Club Discord Servers
 
-**Tech 🥪 **: Svelte.js w/ [Sozai](https://github.com/r2dev2/sozai) UI, FastAPI Backend running on an Oracle VM exposed with Ngrok
+> Tech 🥪: Svelte.js w/ [Sozai](https://github.com/r2dev2/sozai) UI, FastAPI Backend running on an Oracle VM exposed with Ngrok
 
 This is the repository for all code involving any analysis over the thousands of messages on the [Lynbrook Web Dev Club](https://discord.gg/FWRN5bqq5v) and [Machine Learning Club](https://discord.gg/gVQBu6K6ad) Discord Servers. 
 
